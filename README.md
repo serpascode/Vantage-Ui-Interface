@@ -1,2 +1,2 @@
 
-![Vantage UI](Vantage_user_interface)
+![Vantage UI](Vantage_user_interface.gif)
