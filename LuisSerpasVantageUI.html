@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+        <title>Vantage User Interface</title>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" type="text/css" href="vantageStyle.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+        
+		<script type="text/javascript" src="alphaScript.js"></script>
+		
+    
+
+		<style>
+            .outerLayer{
+                background-color: #2B343C;
+                min-width: 500px;
+            }
+            .outerHighlight{
+                background-color: #4B535E;
+                height: 22px;
+                width: 160px;
+                margin-left: -3px;
+                margin-top: 11px;
+                margin-bottom: 11px;
+                border-radius: 15px;
+            }
+            .ticketLayer{
+                background-color: #16AA9C;
+                overflow-x: hidden;
+            }
+            
+            .contentLayer{
+                background-color: #F4F8F7;
+                padding-left: 40px;
+                padding-right: 40px;
+                padding-bottom: 38px;
+            }
+            .innerTabField{
+                background-color: #F4F8F7;
+                padding-top: 30px;
+                margin-left: -15px;
+            }
+            .innerTab{
+                font-weight: bold;
+                background-color: #F2F2F2;
+                text-align: center;
+                padding: 12px;
+                font-size: 14px;
+                color: #888;
+                border:  1px solid #DDD;
+                width: 163px;
+                height: 45px;
+                display: inline-block;
+            }
+            .innerLeftLayer{
+                
+            }
+            .innerRightLayer{
+               
+            }
+                     
+            .hiddenSpace{
+                width: 10px;
+                background-color: red;
+            }
+            .buttonRow 
+            {
+                padding-top: 5px;
+                background-color: white;
+                border: 1px solid  #DDD;
+                border-radius: 5px;
+            }
+            .buttonDesign{
+                background-color:  #16AA9C;
+                height: 35px;
+                margin-top: -5px;
+                width: auto;
+                float: right;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                border-color:  #16AA9C;
+            }
+            .iconStyle{
+                position: relative;
+                right: 10px;
+                padding-left: 15%;
+            }
+            .tagStyle{
+                color: #DDD;
+                padding-top: 3px;
+            }
+            .rowOutline{
+                color: #4b535e;
+                background-color: white;
+                border: 1px solid  #DDD;
+                border-radius: 5px;
+                padding: 10px;
+            }
+            .rowTopPad
+            {
+                margin-top: 15px;
+            }
+            .topLine{
+                border-top: 1px solid #DDD;
+                padding-top: 10px;
+            }
+            .bottomLine{
+                border-bottom: 1px solid #DDD;
+                padding-bottom: 10px;
+            }
+            .leftLine{
+                border-left: 1px solid #DDD;
+            }
+            .rightLine{
+                border-right: 1px solid #DDD;
+            }
+            .greenHeader{
+                color: #085F56;
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-size: 15px;
+            }
+            .bold{
+                font-weight: bold; 
+            }
+            .issueStyle{
+                padding: 15px;
+                font-size: 10px;
+            }
+            .issueStyle .bold{
+                font-weight: 750;
+            }
+            .issueStyle .issue{
+                width: auto;
+                margin-left: 1px;
+                margin-right: 1px;
+                border-bottom: 1px solid #DDD;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            .finalBorder{
+                border-bottom: none !important;
+            }
+            .leftColStyle{
+                margin-left: -15px;
+                border-top-left-radius: 0px;
+                height: 100%;
+                padding-left: 25px;
+                min-height: 545px;
+                
+                padding-right: 25px;
+                margin-right: 10px;
+            }
+            
+            @media (max-width: 978px)
+            {
+                .leftColStyle
+                {
+                    padding-right: 15px;
+                    margin-right: -15px;
+                }
+            }
+            .tabSelect{
+                background-color: white;
+            }
+            .inputFieldStyle{
+                background-color: #F4F8FB;
+                border: 1px solid #DDD;
+                border-radius: 5px;
+                padding: 12px;
+                font-size: 11px;
+            }
+            .leftIconStyle{
+                float: right;
+                color: #888;
+                padding-top: 15px;
+            }
+            .inputButton{
+                float: right;
+                background-color: #16AA9C;
+                color: white;
+                margin-right: 5px;
+                border-radius: 3px;
+            }
+            .inputButtonComment{
+                float: right;
+                background-color: #16AA9C;
+                color: white;
+                border-radius: 3px;
+                font-weight: bold;
+            }
+            .inputButtonRow{
+                padding-top: 50px;
+                text-align: center;
+                padding-bottom: 30px;
+            }
+            .ticket{
+                padding-top: 7px;
+                font-weight: bold;
+                font-size: 20px;
+                height: 43px;
+                width: 177px;
+                margin-top: 7px;
+                margin-bottom:0px;
+                float:left;
+                text-align: center;
+            }
+            .ticketSelect{
+                background-color: #F4F8F7;
+                color: #16AA9C;
+            }
+            .ticketNoSelect{
+                background-color: #0E978D;
+                color:#055F5D;
+            }
+            .ticketAdd{
+                background-color: #0C8B80;
+                color: #DDD;
+            }  
+            .ticketIcon{
+                left: 20px;
+                position: relative;
+                font-size: 17px;
+            }
+            .ticketSelect .ticketIcon{
+                 color: #055F5D;
+            }
+            .searchBox{
+                border: 1px solid #AAA;
+                border-radius: 15px;
+                width: 210px;
+                height: 25px;
+                float: right;
+                padding-left: 10px;
+                padding-top: 3px;
+                font-size: 12px;
+            }
+            .searchBox i{
+                padding-top: 3px;
+                padding-right: 10px;
+                float: right;
+                color: #DDD;
+            }
+            .faqBox{
+                font-size: 12px;
+                width: auto;
+                border-top: 1px solid #DDD;
+                padding: 10px 20px 10px 20px;
+                margin-right: 5px;
+            }
+            .faqBox i{
+                float: right;
+                position: relative;
+                top: -20px;
+                color: #16AA9C;
+            }
+            .faqBoxMarginTop{
+                margin-top: 40px;
+            }
+            .contactTopic{
+                width: 20%;
+                float: left;
+            }
+            .contactContent{
+                width: 30%;
+                float: left;
+            }
+            .contactTicket{
+                width: 25%;
+                float: left;
+            }
+            .contactBox .issueStyle{
+                padding-top: 0px;
+            }
+            .contactIconStyle{
+                float:right;
+                position: relative;
+                top: -15px;
+                color: #AAA;
+                width: 50px;
+                text-align: right;
+            }
+            .calenderDate{
+                padding-top: 2px;
+                position: absolute;
+                right: 50px;
+            }
+            .messageDate{
+                position: absolute;
+                right: 65px;
+                top: 55px;
+                color: #AAA;
+            }
+            .hoverPointer:hover{
+                cursor: pointer;
+            }
+        </style>
+        
+        <script type="text/javascript">
+            function notifyTabClick($clicked){
+                //Reset Displays
+                $(".leftColStyle").hide();
+                $(".innerTab").removeClass("tabSelect");
+                
+                //Highlight clicked Tab
+                $($clicked).addClass("tabSelect");
+                
+                //Determine corrolated display id to show
+                var idName="#"+($clicked.id.substr(0, $clicked.id.length-2));  
+                $(idName).show();
+            }
+            function notifyTicketClick($clicked){
+                if($($clicked).hasClass("ticketSelect"))
+                    return;
+                //Reset Displays
+                $(".ticket").removeClass("ticketSelect");
+                $(".ticket").addClass("ticketNoSelect");
+                
+             
+                //Highlight clicked Ticket
+                $($clicked).toggleClass("ticketSelect");
+                $($clicked).removeClass("ticketNoSelect");
+                //Ticket Add has CSS placed after, and is usually unaffected,**this is a safeguard
+                $(".ticketAdd").removeClass("ticketNoSelect");
+                $(".ticketAdd").removeClass("ticketSelect");
+            }
+        </script>
+	</head>
+    <body>
+        <div class="outerLayer container">
+            <div class="outerHighlight"></div>
+            <div class="row ticketLayer">
+                <div onClick="notifyTicketClick(this)" class="hoverPointer ticket ticketSelect">Ticket 1<i class="ticketIcon fa fa-times"></i></div>
+                <div onClick="notifyTicketClick(this)" class="hoverPointer ticket ticketNoSelect">Ticket 2<i class="ticketIcon fa fa-times"></i></div>
+                <div onClick="notifyTicketClick(this)" class="hoverPointer ticket ticketNoSelect">Ticket 3<i class="ticketIcon fa fa-times"></i></div>
+                <div class="hoverPointer ticket ticketAdd">Add New<i class="hoverPointer ticketIcon fa fa-plus"></i></div>
+            </div>
+            <div class="row contentLayer">
+                <div class="innerTabField col-lg-8">
+                    <div id="messageDisplayID" onClick="notifyTabClick(this)" class="hoverPointer innerTab tabSelect">Message</div><div id="contactDisplayID" onClick="notifyTabClick(this)" class="hoverPointer innerTab">Contact Info</div><div id="faqDisplayID" onClick="notifyTabClick(this)" class="hoverPointer innerTab">FAQ</div>
+                </div>
+                <div class="innerContent">
+                    <div class="innerLeftLayer col-sm-12 col-md-7">
+                        <div id="messageDisplay" class="rowOutline row leftColStyle"  style="display:block">
+                            <div class="greenHeader">Help! Issues Logging In <i class="hoverPointer fa fa-paperclip leftIconStyle fa-rotate-90"></i></div>
+                            <div class="rowTopPad inputFieldStyle">Hello Support,<div class="messageDate">March 08, 2017 2:03PM</div>
+                                <br> I am unable to login to my account. I tried resetting my password but I still cannot login. Can you please help. <br><br>Thank you,<br>Customer
+                                    <div class="inputButtonRow">
+                                    <button type="button" class="inputButtonComment btn btn-info btn-sm">Comment</button>
+                                    <button type="button" class="inputButton btn btn-info btn-sm"><i class='fa fa-arrow-right'></i></button>
+                                    <button type="button" class="inputButton btn btn-info btn-sm col-xs-1"><i class='fa fa-reply'></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="contactDisplay" class="rowOutline row leftColStyle" style="display:none">
+                            <div class="contactBox">
+                                <div class="issueStyle row">
+                                    <div class="issue">
+                                        <div class="greenHeader">CONTACT</div>
+                                        <div class="contactIconStyle"><i class="fa fa-minus"></i></div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTopic">Name</div>
+                                        <div class="contactContent">1 Hour</div>
+                                        <div class="bold contactTopic">Department</div>
+                                        <div class="contactContent">Sales</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTopic">Email</div>
+                                        <div class="contactContent">johndoe@gmail.com</div>
+                                        <div class="bold contactTopic">Reports To</div>
+                                        <div class="contactContent">Ashley</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTopic">Phone</div>
+                                        <div class="contactContent">123.456.7890</div>
+                                        <div class="bold contactTopic">Notify Owner</div>
+                                        <div class="contactContent">No</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTopic">Account</div>
+                                        <div class="contactContent">Deer Funds</div>
+                                        <div class="bold contactTopic">Modified</div>
+                                        <div class="contactContent">Yesterday</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTopic">Title</div>
+                                        <div class="contactContent">1 Hour</div>
+                                        <div class="bold contactTopic">Created</div>
+                                        <div class="contactContent">March 02, 2017</div>
+                                    </div>
+                                </div>
+                                <div class="issueStyle row">
+                                    <div class="issue">
+                                        <div class="greenHeader">ADDRESS INFORMATION</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTopic">Street</div>
+                                        <div class="contactContent">1 Broad Street</div>
+                                        <div class="bold contactTopic">PO Box</div>
+                                        <div class="contactContent">1300</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTopic">City</div>
+                                        <div class="contactContent">Philadelphia</div>
+                                        <div class="bold contactTopic">State</div>
+                                        <div class="contactContent">PA</div>
+                                    </div>
+                                    <div class="row issue finalBorder">
+                                        <div class="bold contactTopic">Postol Code</div>
+                                        <div class="contactContent">19103</div>
+                                        <div class="bold contactTopic">Country</div>
+                                        <div class="contactContent">US</div>
+                                    </div>
+                                </div>
+                                <div class="issueStyle row">
+                                    <div class="issue">
+                                        <div class="greenHeader">TROUBLE TICKET HISTORY</div>
+                                        <div class="contactIconStyle"><i class="fa fa-minus"></i></div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="bold contactTicket">Name</div>
+                                        <div class="bold contactTicket">Status</div>
+                                        <div class="bold contactTicket">Date & Time</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="contactTicket">Trouble Ticket1</div>
+                                        <div class="contactTicket">Received</div>
+                                        <div class="contactTicket">Received</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="contactTicket">Trouble Ticket2</div>
+                                        <div class="contactTicket">Low</div>
+                                        <div class="contactTicket">Low</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="contactTicket">Trouble Ticket3</div>
+                                        <div class="contactTicket">Open</div>
+                                        <div class="contactTicket">Open</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="contactTicket">Trouble Ticket4</div>
+                                        <div class="contactTicket">1 Hour</div>
+                                        <div class="contactTicket">1 Hour</div>
+                                    </div>
+                                    <div class="row issue">
+                                        <div class="contactTicket">Trouble Ticket5</div>
+                                        <div class="contactTicket">1 Hour</div>
+                                        <div class="contactTicket">1 Hour</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="faqDisplay" class="rowOutline row leftColStyle" style="display:none">
+                            <div class="searchBox">Search FAQs<i class="fa fa-search"></i></div>
+                            <div class="faqBox faqBoxMarginTop">
+                                <div class="greenHeader">What is Delyte?</div>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit cum urna feugiat mattis, euismod phasellus quisque nibh libero netus orci vel cursus scelerisque.
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="faqBox">
+                                <div class="greenHeader">What are Tags?</div>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit cum urna feugiat mattis, euismod phasellus quisque nibh libero netus orci vel cursus scelerisque.
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="faqBox">
+                                <div class="greenHeader">What is an Account?</div>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit cum urna feugiat mattis, euismod phasellus quisque nibh libero netus orci vel cursus scelerisque.
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="faqBox">
+                                <div class="greenHeader">How do I assign a contact?</div>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit cum urna feugiat mattis, euismod phasellus quisque nibh libero netus orci vel cursus scelerisque.
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="faqBox">
+                                <div class="greenHeader">How do I set ticket priority?</div>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit cum urna feugiat mattis, euismod phasellus quisque nibh libero netus orci vel cursus scelerisque.
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="faqBox">
+                                <div class="greenHeader">Question Title Displayed Here?</div>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit cum urna feugiat mattis, euismod phasellus quisque nibh libero netus orci vel cursus scelerisque.
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="faqBox">
+                                <div class="greenHeader">Question Title Displayed Here?</div>
+                                Lorem ipsum dolor sit amet consectetur adipiscing elit cum urna feugiat mattis, euismod phasellus quisque nibh libero netus orci vel cursus scelerisque.
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="rowTopPad visible-xs visible-sm col-sm-12"></div>
+                    <div class="innerRightLayer col-sm-12 col-md-5 ">
+                        <div class="rowOutline iconButtonStyle row">
+                            <div id="editDisplayID" onClick="notifyDivClick(this)" class="hoverPointer bold col-xs-6 col-sm-6 bottomLine rightLine">
+                                <i class="fa fa-edit iconStyle"></i>Edit</div>
+                            <div id="editStatusDisplayID" onClick="notifyDivClick(this)" class="hoverPointer bold col-xs-6  col-sm-6 bottomLine leftLine">
+                                <i class="fa fa-exclamation-circle iconStyle"></i>Change Status</div>
+                            <div id="editMergeDisplayID" onClick="notifyDivClick(this)" class="hoverPointer bold col-xs-6  col-sm-6 topLine rightLine"><i class="fa fa-random iconStyle">
+                                </i>Merge</div>
+                            <div id="editFaqDisplayID" onClick="notifyDivClick(this)" class="hoverPointer bold col-xs-6 col-sm-6 topLine leftLine"><i class="fa fa-question-circle iconStyle">
+                                </i>Add to FAQ</div>
+                        </div>
+                        <div class="rowTopPad buttonRow row">
+                            <div class="col-xs-10 bold">
+                            <input type="checkbox" name="followUpValue" value="Yes">&nbsp&nbsp&nbspFollow Up</div>
+                            <div class="calenderDate">April 10, 2017</div>
+                            <button onClick="notifyCalenderClick(this)" type="button" class="buttonDesign col-xs-2 btn btn-info btn-sm">
+                            <i class='fa fa-calendar-check'></i></button>
+                        </div>
+                        <div class="rowTopPad buttonRow row">
+                            <div class="col-xs-10 tagStyle"><i class="fa fa-tag"></i>&nbsp&nbspAdd Tags</div>
+                            <button onClick="notifyTagClick(this)" type="button" class="buttonDesign col-xs-2 btn btn-info btn-sm">Add</button>
+                        </div>
+                        <div class="rowTopPad rowOutline issueStyle row">
+                            <div class="greenHeader row">
+                                <div class="col-xs-12">LOGIN ISSUE</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Ticket Duration</div>
+                                <div class="content">1 Hour</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Email Thread Status</div>
+                                <div class="content">Received</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Priority</div>
+                                <div class="content">Low</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Status</div>
+                                <div class="content">Open</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Type</div>
+                                <div class="content">1 Hour</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Watchers</div>
+                                <div class="content">John Doe</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Tags</div>
+                                <div class="content">General</div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Related Account</div>
+                                <div class="content"></div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Related Contact</div>
+                                <div class="content"></div>
+                            </div>
+                            <div class="row issue">
+                                <div class="bold col-xs-4 col-md-7">Email</div>
+                                <div class="content"></div>
+                            </div>
+                            <div class="row issue finalBorder">
+                                <div class="bold col-xs-4 col-md-7">Assigned To</div>
+                                <div class="content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+
+            </div>
+        </div>    
+    </body>
+</html>
