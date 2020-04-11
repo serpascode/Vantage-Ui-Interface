@@ -1,2 +1,2 @@
-# Vantage-Ui-Interface
-![Vantage User Interface Demo](Vantage_user_interface.gif)
+
+![Vantage UI](Vantage_user_interface)
